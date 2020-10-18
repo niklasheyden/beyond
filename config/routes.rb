@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :user_infos, except: [:destroy]
 
+  resources :categories
+
 
 end

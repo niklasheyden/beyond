@@ -2,4 +2,10 @@
 
   <h1>Good Morning, <%= @user.user_info.first_name %> </h1>
 
+  <h2>Your Categories</h2>
+  <% @user.categories.each do |category| %>
+  <p> <%= category.title %> </p>
+  <% end %>
+  <%= link_to 'Create new category', new_category_path(@user) %>
+
 </div>
