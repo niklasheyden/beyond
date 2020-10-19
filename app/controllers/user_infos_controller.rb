@@ -27,7 +27,7 @@ class UserInfosController < ApplicationController
     authorize @user_info
 
     if @user_info.save
-      redirect_to @user_info, notice: 'User info was successfully created.'
+      redirect_to new_category_path(@user), notice: 'User info was successfully created.'
     else
       render :new
     end

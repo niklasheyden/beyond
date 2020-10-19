@@ -27,4 +27,13 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
+  def after_sign_in_path_for(resource)
+
+    if @user.user_info != nil
+      root_path(@user)
+    else
+      new_user_info_path(@user)
+    end
+  end
+
 end

@@ -1,2 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="content-wrapper">
+
+  <h1>Good Morning, <%= @user.user_info.first_name %> </h1>
+
+  <h2>Your Categories</h2>
+  <% @user.categories.each do |category| %>
+  <p> <%= category.title %> </p>
+  <% end %>
+  <%= link_to 'Create new category', new_category_path(@user) %>
+
+  <br>
+
+  <h2>Your Missions </h2>
+  <% @user.missions.each do |mission| %>
+  <p> <%= mission.title %> </p>
+  <% end %>
+  <%= link_to 'Create new mission', new_mission_path(@user) %>
+
+  <br>
+
+  <h2>Your Habits </h2>
+  <% @user.habits.each do |habit| %>
+  <p> <%= habit.title %> </p>
+  <% end %>
+  <%= link_to 'Create new habit', new_habit_path(@user) %>
+
+</div>

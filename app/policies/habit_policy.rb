@@ -1,4 +1,4 @@
-class UserInfoPolicy < ApplicationPolicy
+class HabitPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.where(user: user)
@@ -10,7 +10,7 @@ class UserInfoPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user_is_owner_or_admin?
   end
 
   def show?

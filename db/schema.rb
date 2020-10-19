@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_211953) do
+ActiveRecord::Schema.define(version: 2020_10_19_113813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.string "color"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "habits", force: :cascade do |t|
+    t.string "title"
+    t.boolean "status"
+    t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "mission_id", null: false
+    t.index ["category_id"], name: "index_habits_on_category_id"
+    t.index ["mission_id"], name: "index_habits_on_mission_id"
+    t.index ["user_id"], name: "index_habits_on_user_id"
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.string "title"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["category_id"], name: "index_missions_on_category_id"
+    t.index ["user_id"], name: "index_missions_on_user_id"
+  end
 
   create_table "user_infos", force: :cascade do |t|
     t.string "first_name"
@@ -37,5 +69,11 @@ ActiveRecord::Schema.define(version: 2020_10_17_211953) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "users"
+  add_foreign_key "habits", "categories"
+  add_foreign_key "habits", "missions"
+  add_foreign_key "habits", "users"
+  add_foreign_key "missions", "categories"
+  add_foreign_key "missions", "users"
   add_foreign_key "user_infos", "users"
 end
