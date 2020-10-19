@@ -28,12 +28,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-
-    if @user.user_info != nil
-      root_path(@user)
-    else
+    if @user.user_info.nil?
       new_user_info_path(@user)
+    else
+      root_path(@user)
     end
   end
-
 end

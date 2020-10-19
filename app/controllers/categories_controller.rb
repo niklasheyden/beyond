@@ -25,7 +25,11 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.user = current_user
     authorize @category
-    if @category.save
+
+    if @category.user.missions.count.zero?
+      @category.save
+      redirect_to new_mission_path(@user), notice: 'Category was successfully created.'
+    elsif @category.save
       redirect_to root_path, notice: 'Category was successfully created.'
     else
       render :new

@@ -25,7 +25,6 @@ class UserInfosController < ApplicationController
     @user_info = UserInfo.new(user_info_params)
     @user_info.user = current_user
     authorize @user_info
-
     if @user_info.save
       redirect_to new_category_path(@user), notice: 'User info was successfully created.'
     else
