@@ -1,6 +1,6 @@
-class Mission < ApplicationRecord
+class Habit < ApplicationRecord
   belongs_to :category
+  belongs_to :mission
   belongs_to :user
-  has_many :habits, dependent: :destroy
   validates :title, presence: true
 end

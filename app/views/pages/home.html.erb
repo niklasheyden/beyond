@@ -8,10 +8,20 @@
   <% end %>
   <%= link_to 'Create new category', new_category_path(@user) %>
 
+  <br>
+
   <h2>Your Missions </h2>
   <% @user.missions.each do |mission| %>
   <p> <%= mission.title %> </p>
   <% end %>
   <%= link_to 'Create new mission', new_mission_path(@user) %>
+
+  <br>
+
+  <h2>Your Habits </h2>
+  <% @user.habits.each do |habit| %>
+  <p> <%= habit.title %> </p>
+  <% end %>
+  <%= link_to 'Create new habit', new_habit_path(@user) %>
 
 </div>
