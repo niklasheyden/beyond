@@ -3,25 +3,50 @@
   <h1>Good Morning, <%= @user.user_info.first_name %> </h1>
 
   <h2>Your Categories</h2>
-  <% @user.categories.each do |category| %>
-  <p> <%= category.title %> </p>
-  <% end %>
-  <%= link_to 'Create new category', new_category_path(@user) %>
+  <table>
+    <tbody>
+      <% @user.categories.each do |category| %>
+        <tr>
+          <td><%= category.title %></td>
+          <td> <%= link_to 'Show category', category %> </td>
+          <td> <%= link_to 'Edit category', edit_category_path(category) %> </td>
+          <td> <%= link_to 'Delete category', category, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Create new category', new_category_path %>
 
-  <br>
+  <br><br>
 
   <h2>Your Missions </h2>
-  <% @user.missions.each do |mission| %>
-  <p> <%= mission.title %> </p>
-  <% end %>
+  <table>
+    <tbody>
+      <% @user.missions.each do |mission| %>
+        <tr>
+          <td><%= mission.title %></td>
+          <td> <%= link_to 'Show mission', mission %> </td>
+          <td> <%= link_to 'Edit mission', edit_mission_path(mission) %> </td>
+          <td> <%= link_to 'Delete mission', mission, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <%= link_to 'Create new mission', new_mission_path(@user) %>
 
-  <br>
+  <br><br>
 
   <h2>Your Habits </h2>
-  <% @user.habits.each do |habit| %>
-  <p> <%= habit.title %> </p>
-  <% end %>
+  <table>
+    <tbody>
+      <% @user.habits.each do |habit| %>
+      <td><%= habit.title %></td>
+      <td> <%= link_to 'Show habit', habit %> </td>
+      <td> <%= link_to 'Edit habit', edit_habit_path(habit) %> </td>
+      <td> <%= link_to 'Delete habit', habit, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+      <% end %>
+    </tbody>
+  </table>
   <%= link_to 'Create new habit', new_habit_path(@user) %>
 
 </div>
