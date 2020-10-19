@@ -25,7 +25,10 @@ class MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user = current_user
     authorize @mission
-    if @mission.save
+    if @mission.user.habits.count.zero?
+      @mission.save
+      redirect_to new_habit_path(@user), notice: 'Mission was successfully created.'
+    elsif @mission.save
       redirect_to root_path, notice: 'Mission was successfully created.'
     else
       render :new
