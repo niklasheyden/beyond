@@ -4,7 +4,12 @@
 
   <h2>Your Categories</h2>
   <% @user.categories.each do |category| %>
-  <p> <%= category.title %> </p>
+    <tr>
+      <td><%= category.title %></td>
+      <td> <%= link_to 'Show category', category %> </td>
+      <td> <%= link_to 'Edit category', edit_category_path(category) %></td>
+      <td><%= link_to 'Delete category', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
   <%= link_to 'Create new category', new_category_path(@user) %>
 
@@ -12,7 +17,12 @@
 
   <h2>Your Missions </h2>
   <% @user.missions.each do |mission| %>
-  <p> <%= mission.title %> </p>
+    <tr>
+      <td><%= mission.title %></td>
+      <td> <%= link_to 'Show mission', mission %> </td>
+      <td> <%= link_to 'Edit mission', edit_mission_path(mission) %></td>
+      <td><%= link_to 'Delete mission', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
   <%= link_to 'Create new mission', new_mission_path(@user) %>
 
@@ -20,7 +30,12 @@
 
   <h2>Your Habits </h2>
   <% @user.habits.each do |habit| %>
-  <p> <%= habit.title %> </p>
+    <tr>
+      <td><%= habit.title %></td>
+      <td> <%= link_to 'Show habit', habit %> </td>
+      <td> <%= link_to 'Edit habit', edit_habit_path(habit) %></td>
+      <td><%= link_to 'Delete habit', habit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
   <%= link_to 'Create new habit', new_habit_path(@user) %>
 
