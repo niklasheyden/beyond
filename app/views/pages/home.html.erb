@@ -8,4 +8,10 @@
   <% end %>
   <%= link_to 'Create new category', new_category_path(@user) %>
 
+  <h2>Your Missions </h2>
+  <% @user.missions.each do |mission| %>
+  <p> <%= mission.title %> </p>
+  <% end %>
+  <%= link_to 'Create new mission', new_mission_path(@user) %>
+
 </div>

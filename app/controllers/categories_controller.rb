@@ -25,7 +25,6 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.user = current_user
     authorize @category
-
     if @category.save
       redirect_to root_path, notice: 'Category was successfully created.'
     else
