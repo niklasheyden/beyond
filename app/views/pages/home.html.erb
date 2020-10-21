@@ -40,10 +40,12 @@
   <table>
     <tbody>
       <% @user.habits.each do |habit| %>
-      <td><%= habit.title %></td>
-      <td> <%= link_to 'Show habit', habit %> </td>
-      <td> <%= link_to 'Edit habit', edit_habit_path(habit) %> </td>
-      <td> <%= link_to 'Delete habit', habit, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+      <tr>
+        <td><%= habit.title %></td>
+        <td> <%= link_to 'Show habit', habit %> </td>
+        <td> <%= link_to 'Edit habit', edit_habit_path(habit) %> </td>
+        <td> <%= link_to 'Delete habit', habit, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+      </tr>
       <% end %>
     </tbody>
   </table>
