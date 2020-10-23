@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use devise for authentication
 gem 'devise'
 
+# User cloudinary for user image upload
+gem 'cloudinary', '~> 1.16.0'
+
 # Use Pundit for authorization
 gem 'pundit'
 
@@ -39,7 +42,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: [:development, :test]
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
