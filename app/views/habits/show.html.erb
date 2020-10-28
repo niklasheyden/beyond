@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="content-wrapper">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @habit.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @habit.title %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @habit.status %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= @habit.status %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @habit.category_id %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @habit.category_id %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @habit.user_id %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @habit.user_id %>
+  </p>
 
-<%= link_to 'Edit', edit_habit_path(@habit) %> |
-<%= link_to 'Back', root_path %>
+  <%= link_to 'Edit', edit_habit_path(@habit) %> |
+  <%= link_to 'Back', root_path %>
+</div>

@@ -1,0 +1,63 @@
+.dropbtn {
+  // background-image: url(kenobi-profile.png);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dropdown {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 10px;
+  width: 100px;
+  list-style: none;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 12px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #2C2543;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  color: #fff;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #2C2543;
+}
