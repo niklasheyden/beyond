@@ -1,0 +1,30 @@
+<div class="dropdown">
+  <button class="dropbtn">
+    <% if @user != nil && @user.id != nil %>
+      <% if @user.user_info.photo.attached? %>
+         <%= cl_image_tag @user.user_info.photo.key, class: 'profile-image' %>
+      <% else %>
+        <%= image_tag 'https://res.cloudinary.com/beyond-me/image/upload/v1603463495/vd8hwtz2hk06vt13ce4a4kd676iu.jpg', class: 'profile-image' %>
+      <% end %>
+    <% else %>
+      <%= image_tag 'https://res.cloudinary.com/beyond-me/image/upload/v1603463495/vd8hwtz2hk06vt13ce4a4kd676iu.jpg', class: 'profile-image' %>
+    <% end %>
+  </button>
+  <div class="dropdown-content">
+    <% if user_signed_in? %>
+      <li class="nav-item active">
+        <%= link_to "Home", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+    <% end %>
+  </div>
+</div>

@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="content-wrapper">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @mission.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @mission.title %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @mission.category_id %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @mission.category_id %>
+  </p>
 
-<%= link_to 'Edit', edit_mission_path(@mission) %> |
-<%= link_to 'Back', root_path %>
+  <%= link_to 'Edit', edit_mission_path(@mission) %> |
+  <%= link_to 'Back', root_path %>
+</div>
