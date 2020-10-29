@@ -3,19 +3,30 @@
   <h1>Good Morning, <%= @user.user_info.first_name %> </h1>
 
   <h2>Your Categories</h2>
-  <table>
-    <tbody>
-      <% @user.categories.each do |category| %>
-        <tr>
-          <td><%= category.title %></td>
-          <td> <%= link_to 'Show category', category %> </td>
-          <td> <%= link_to 'Edit category', edit_category_path(category) %> </td>
-          <td> <%= link_to 'Delete category', category, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
-        </tr>
+  <div class="categories-cards-container">
+    <% @user.categories.each do |category| %>
+      <%= link_to category do %>
+        <div class="category-card">
+          <div class="category-card-content">
+            <div class="category-process">
+              <% category.missions.each do |mission| %>
+                <% habits_done = mission.habits.where(status: true) %>
+                <% habits_total = mission.habits.count%>
+                <% progress = habits_done.count.to_f.round(2) / habits_total.to_f.round(2) %>
+                <% result = progress.round(2) * 100 %>
+                <p> <%= result.ceil %>% </p>
+              <% end %>
+            </div>
+            <div class="category-info">
+              <h4 style="color: <%= category.color %> "><%= category.title %></h4>
+              <p>Last week 98%</p>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'Create new category', new_category_path %>
+    <% end %>
+    <%= link_to '+', new_category_path, class:"category-card add-category" %>
+  </div>
 
   <br><br>
 
@@ -51,4 +62,24 @@
   </table>
   <%= link_to 'Create new habit', new_habit_path(@user) %>
 
+
+
+
+
 </div>
+
+
+
+<!-- <table>
+  <tbody>
+    <% @user.categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
+        <td> <%= link_to 'Show category', category %> </td>
+        <td> <%= link_to 'Edit category', edit_category_path(category) %> </td>
+        <td> <%= link_to 'Delete category', category, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Create new category', new_category_path %> -->
