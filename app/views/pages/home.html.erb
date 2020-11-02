@@ -8,13 +8,17 @@
       <%= link_to category do %>
         <div class="category-card">
           <div class="category-card-content">
-            <div class="category-process">
+            <div class="category-progress">
               <% category.missions.each do |mission| %>
                 <% habits_done = mission.habits.where(status: true) %>
                 <% habits_total = mission.habits.count%>
                 <% progress = habits_done.count.to_f.round(2) / habits_total.to_f.round(2) %>
                 <% result = progress.round(2) * 100 %>
-                <p> <%= result.ceil %>% </p>
+                <div class="progressdiv"  data-percent=" <%= result.ceil %> ">
+                  <svg class="progress" width="88" height="88" viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <circle r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" style=" stroke: <%= category.color %> "></circle>
+                  <circle class="bar" r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" ></circle>
+                </svg></div>
               <% end %>
             </div>
             <div class="category-info">
@@ -61,6 +65,14 @@
     </tbody>
   </table>
   <%= link_to 'Create new habit', new_habit_path(@user) %>
+
+
+
+
+
+
+
+
 
 </div>
 
