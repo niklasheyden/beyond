@@ -2,7 +2,7 @@
   <button class="dropbtn">
     <% if @user != nil && @user.id != nil %>
       <% if @user.user_info.photo.attached? %>
-         <%= cl_image_tag @user.user_info.photo.key, class: 'profile-image' %>
+         <%= cl_image_tag @user.user_info.photo.key, :width=>800, :height=>800, :gravity=>"face", :radius=>"max", :crop=>"crop",  class: 'profile-image' %>
       <% else %>
         <%= image_tag 'https://res.cloudinary.com/beyond-me/image/upload/v1603463495/vd8hwtz2hk06vt13ce4a4kd676iu.jpg', class: 'profile-image' %>
       <% end %>

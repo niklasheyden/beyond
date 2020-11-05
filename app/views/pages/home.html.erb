@@ -1,54 +1,132 @@
 <div class="content-wrapper">
 
-  <h1>Good Morning, <%= @user.user_info.first_name %> </h1>
+  <div class="greeting-wrapper">
+    <div class="greeting-text">
+      <h1>Good Morning, <%= @user.user_info.first_name %> </h1>
+      <p>Lorem ipsum dolor sit amet</p>
+    </div>
+    <div class="greeting-date">
+      <p> <%= Time.new.strftime("%A")  %>, <%= Time.now.day %> </p>
+    </div>
+  </div>
 
   <h2>Your Categories</h2>
-  <table>
-    <tbody>
-      <% @user.categories.each do |category| %>
-        <tr>
-          <td><%= category.title %></td>
-          <td> <%= link_to 'Show category', category %> </td>
-          <td> <%= link_to 'Edit category', edit_category_path(category) %> </td>
-          <td> <%= link_to 'Delete category', category, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'Create new category', new_category_path %>
+  <div class="categories-cards-container">
+    <% @user.categories.each do |category| %>
+      <%= link_to category do %>
+        <div class="category-card">
+          <div class="category-card-content">
+            <div class="category-progress">
 
-  <br><br>
+              <% habits_done = category.habits.where(status: true) %>
+              <% habits_total = category.habits.count %>
+              <% progress = habits_done.count.to_f.round(2) / habits_total.to_f.round(2) %>
+              <% result = progress.round(2) * 100 %>
+              <div class="progressdiv"  data-percent=" <%= result %> ">
+                <svg class="progress" width="88" height="88" viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" style=" stroke: <%= category.color %> "></circle>
+                <circle class="bar" r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" ></circle>
+              </svg></div>
+            </div>
+            <div class="category-info">
+              <h4 style="color: <%= category.color %> "><%= category.title %></h4>
+              <p>Last week 98%</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= link_to '+', new_category_path, class:"category-card add-category" %>
+  </div>
+
+
 
   <h2>Your Missions </h2>
-  <table>
-    <tbody>
-      <% @user.missions.each do |mission| %>
-        <tr>
-          <td><%= mission.title %></td>
-          <td> <%= link_to 'Show mission', mission %> </td>
-          <td> <%= link_to 'Edit mission', edit_mission_path(mission) %> </td>
-          <td> <%= link_to 'Delete mission', mission, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
-        </tr>
+  <div class="missions-cards-container">
+    <% @user.missions.each do |mission| %>
+      <%= link_to mission do %>
+        <div class="mission-card">
+          <div class="mission-card-content">
+            <h5 style="color: <%= mission.category.color %> "><%= mission.category.title %></h5>
+            <h4><%= mission.title %></h4>
+            <% habits_done = mission.habits.where(status: true) %>
+            <% habits_total = mission.habits.count %>
+            <% progress = habits_done.count.to_f.round(2) / habits_total.to_f.round(2) %>
+            <% result = progress.round(2) * 100 %>
+            <p> <%= result %>% </p>
+            <div class="progress-bar-line" style="background: <%= mission.category.color %>; z-index: 0 ">
+              <div class="progress-overlay" style="z-index: 1">
+                <div class="progress-line" style="width: <%= result %>%; background: <%= mission.category.color %>; z-index: 2;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'Create new mission', new_mission_path(@user) %>
+    <% end %>
+    <%= link_to '+', new_mission_path, class:"mission-card add-mission" %>
+  </div>
 
-  <br><br>
 
   <h2>Your Habits </h2>
-  <table>
-    <tbody>
-      <% @user.habits.each do |habit| %>
-      <tr>
-        <td><%= habit.title %></td>
-        <td> <%= link_to 'Show habit', habit %> </td>
-        <td> <%= link_to 'Edit habit', edit_habit_path(habit) %> </td>
-        <td> <%= link_to 'Delete habit', habit, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
-      </tr>
+  <div class="habits-cards-container">
+    <% @user.habits.each do |habit| %>
+      <%= link_to habit do %>
+        <div class="habit-card">
+          <div class="habit-content-wrapper">
+            <div class="habit-status-wrapper"></div>
+            <h4><%= habit.title %></h4>
+            <div class="habit-category-color" style="background: <%= habit.mission.category.color %> "></div>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'Create new habit', new_habit_path(@user) %>
+    <% end %>
+    <%= link_to '+', new_habit_path, class:"habit-card add-habit" %>
+  </div>
+
 
 </div>
+
+
+<!-- <h2>Your Missions </h2>
+<table>
+  <tbody>
+    <% @user.missions.each do |mission| %>
+      <tr>
+        <td><%= mission.title %></td>
+        <td> <%= link_to 'Show mission', mission %> </td>
+        <td> <%= link_to 'Edit mission', edit_mission_path(mission) %> </td>
+        <td> <%= link_to 'Delete mission', mission, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Create new mission', new_mission_path(@user) %> -->
+
+<!-- <table>
+  <tbody>
+    <% @user.categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
+        <td> <%= link_to 'Show category', category %> </td>
+        <td> <%= link_to 'Edit category', edit_category_path(category) %> </td>
+        <td> <%= link_to 'Delete category', category, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Create new category', new_category_path %> -->
+
+<!-- <h2>Your Habits </h2>
+<table>
+  <tbody>
+    <% @user.habits.each do |habit| %>
+    <tr>
+      <td><%= habit.title %></td>
+      <td> <%= link_to 'Show habit', habit %> </td>
+      <td> <%= link_to 'Edit habit', edit_habit_path(habit) %> </td>
+      <td> <%= link_to 'Delete habit', habit, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Create new habit', new_habit_path(@user) %> -->
