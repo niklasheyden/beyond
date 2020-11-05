@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   gap: 32px 32px;
+  margin-bottom: 120px;
 }
 
 .mission-card {
@@ -13,24 +14,26 @@
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
+  h5 {
+    font-family: 'Gilroy-Medium';
+    font-size: 12px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    margin: 0;
+  }
   h4 {
     font-family: 'Gilroy-Bold';
     font-size: 16px;
     text-decoration: none;
+    letter-spacing: 2px;
+    margin: 0;
   }
   p {
-    font-family: 'Gilroy-Light';
+    margin-bottom: 0;
+    margin-top: 1rem;
     font-size: 12px;
-    text-decoration: none;
   }
 }
-
-.mission-card-content {
-  display: flex;
-  align-items: center;
-}
-
-
 
 .add-mission {
     display: flex;
@@ -41,7 +44,7 @@
     font-size: 58px;
     text-decoration: none !important;
     margin: 0;
-    padding: 0;
+    padding: 1rem;
     p {
       margin: 0;
     }

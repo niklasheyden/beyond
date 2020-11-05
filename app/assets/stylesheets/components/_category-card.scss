@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   gap: 32px 32px;
+  margin-bottom: 120px;
 }
 
 .category-card {
@@ -17,11 +18,14 @@
     font-family: 'Gilroy-Bold';
     font-size: 16px;
     text-decoration: none;
+    letter-spacing: 2px;
+    margin: 0;
   }
   p {
     font-family: 'Gilroy-Light';
     font-size: 12px;
     text-decoration: none;
+    margin: 0;
   }
 }
 

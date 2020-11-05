@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+.greeting-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 120px;
+  .greeting-text {
+    h1 {
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-family: 'Gilroy-Bold';
+    }
+    p {
+      color: #FF3656;
+      margin: 0;
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Gilroy-Light';
+    }
+  }
+  .greeting-date {
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      font-family: 'Gilroy-Bold';
+      font-size: 16px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+  }
+}

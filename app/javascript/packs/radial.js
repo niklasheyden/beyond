@@ -9,7 +9,6 @@ const radial = () => {
             progress = circles[i].parentElement.getAttribute('data-percent');
 
             circles[i].querySelector('.bar').style['stroke-dashoffset'] = totalProgress * progress / 100;
-
         }
     }
 })();

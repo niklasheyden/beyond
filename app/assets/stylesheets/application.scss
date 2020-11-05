@@ -11,10 +11,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/home";
 
 // Components
 @import "components/profile";
 @import "components/category-card";
+@import "components/mission-card";
+@import "components/habit-card";
 @import "components/radial-progress";
 @import "components/bar-progress";
 
@@ -34,7 +37,7 @@ body {
   color: #ffffff;
   background-color: #17171A;
   margin: 0;
-  padding: 0;
+  padding: 120px 0;
 }
 
 body::-webkit-scrollbar {
@@ -57,4 +60,22 @@ main {
 .content-wrapper {
   width: 900px;
   margin: auto;
+}
+
+
+h1 {
+  font-family: 'Gilroy-Bold';
+  font-size: 40px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: 'Gilroy-Bold';
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
 }
