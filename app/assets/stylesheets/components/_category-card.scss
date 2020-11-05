@@ -4,6 +4,9 @@
   justify-content: space-between;
   gap: 32px 32px;
   margin-bottom: 120px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .category-card {
@@ -26,6 +29,9 @@
     font-size: 12px;
     text-decoration: none;
     margin: 0;
+  }
+  a:hover {
+    text-decoration: none;
   }
 }
 

@@ -4,6 +4,9 @@
   justify-content: space-between;
   gap: 32px 32px;
   margin-bottom: 120px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .mission-card {
