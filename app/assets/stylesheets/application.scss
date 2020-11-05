@@ -21,31 +21,6 @@
 @import "components/radial-progress";
 @import "components/bar-progress";
 
-@font-face {
-  font-family: 'Gilroy-Bold';
-  src: url('/assets/fonts/Gilroy/Gilroy-Bold.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Gilroy-Heavy';
-  src: url('/assets/fonts/Gilroy/Gilroy-Heavy.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Gilroy-Medium';
-  src: url('/assets/fonts/Gilroy/Gilroy-Medium.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Gilroy-Regular';
-  src: url('/assets/fonts/Gilroy/Gilroy-Regular.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Gilroy-Light';
-  src: url('/assets/fonts/Gilroy/Gilroy-Light.ttf') format('opentype');
-}
-
 :root {
   font-size: 16px;
   font-family: 'Gilroy-Medium';
