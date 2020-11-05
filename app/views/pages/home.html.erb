@@ -35,19 +35,19 @@
   <br><br>
 
   <h2>Your Missions </h2>
-  <table>
-    <tbody>
-      <% @user.missions.each do |mission| %>
-        <tr>
-          <td><%= mission.title %></td>
-          <td> <%= link_to 'Show mission', mission %> </td>
-          <td> <%= link_to 'Edit mission', edit_mission_path(mission) %> </td>
-          <td> <%= link_to 'Delete mission', mission, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
-        </tr>
+  <div class="missions-cards-container">
+    <% @user.missions.each do |mission| %>
+      <%= link_to mission do %>
+        <div class="mission-card">
+          <div class="mission-card-content">
+
+
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'Create new mission', new_mission_path(@user) %>
+    <% end %>
+    <%= link_to '+', new_mission_path, class:"mission-card add-mission" %>
+  </div>
 
   <br><br>
 
@@ -69,7 +69,20 @@
 
 
 
-
+  <h2>Your Missions </h2>
+  <table>
+    <tbody>
+      <% @user.missions.each do |mission| %>
+        <tr>
+          <td><%= mission.title %></td>
+          <td> <%= link_to 'Show mission', mission %> </td>
+          <td> <%= link_to 'Edit mission', edit_mission_path(mission) %> </td>
+          <td> <%= link_to 'Delete mission', mission, method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Create new mission', new_mission_path(@user) %>
 
 
 

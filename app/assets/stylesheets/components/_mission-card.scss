@@ -1,0 +1,48 @@
+.missions-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  gap: 32px 32px;
+}
+
+.mission-card {
+  background-color: #222228;
+  width: 280px;
+  border-radius: 15px;
+  padding: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  h4 {
+    font-family: 'Gilroy-Bold';
+    font-size: 16px;
+    text-decoration: none;
+  }
+  p {
+    font-family: 'Gilroy-Light';
+    font-size: 12px;
+    text-decoration: none;
+  }
+}
+
+.mission-card-content {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.add-mission {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF3656;
+    font-family: 'Gilroy-Light';
+    font-size: 58px;
+    text-decoration: none !important;
+    margin: 0;
+    padding: 0;
+    p {
+      margin: 0;
+    }
+  }
