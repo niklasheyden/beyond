@@ -38,8 +38,6 @@
                   </svg>
                 </div>
               <% end %>
-
-
             </div>
             <div class="category-info">
               <h4 style="color: <%= category.color %> "><%= category.title %></h4>
@@ -51,8 +49,6 @@
     <% end %>
     <%= link_to '+', new_category_path, class:"category-card add-category" %>
   </div>
-
-
 
   <h2>Your Missions </h2>
   <div class="missions-cards-container">
@@ -66,19 +62,27 @@
             <% habits_total = mission.habits.count %>
             <% progress = habits_done.count.to_f.round(2) / habits_total.to_f.round(2) %>
             <% result = progress.round(2) * 100 %>
-            <p> <%= result %>% </p>
-            <div class="progress-bar-line" style="background: <%= mission.category.color %>; z-index: 0 ">
-              <div class="progress-overlay" style="z-index: 1">
-                <div class="progress-line" style="width: <%= result %>%; background: <%= mission.category.color %>; z-index: 2;"></div>
+            <% if result.nan? == false %>
+              <p> <%= result.ceil %>% </p>
+              <div class="progress-bar-line" style="background: <%= mission.category.color %>; z-index: 0 ">
+                <div class="progress-overlay" style="z-index: 1">
+                  <div class="progress-line" style="width: <%= result %>%; background: <%= mission.category.color %>; z-index: 2;"></div>
+                </div>
               </div>
-            </div>
+            <% else %>
+              <p> 0% </p>
+              <div class="progress-bar-line" style="background: <%= mission.category.color %>; z-index: 0 ">
+                <div class="progress-overlay" style="z-index: 1">
+                  <div class="progress-line" style="width: <%= result %>%; background: <%= mission.category.color %>; z-index: 2;"></div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
     <% end %>
     <%= link_to '+', new_mission_path, class:"mission-card add-mission" %>
   </div>
-
 
   <h2>Your Habits </h2>
   <div class="habits-cards-container">
@@ -95,7 +99,6 @@
     <% end %>
     <%= link_to '+', new_habit_path, class:"habit-card add-habit" %>
   </div>
-
 
 </div>
 
