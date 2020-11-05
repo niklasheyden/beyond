@@ -6,20 +6,54 @@ $body-font: "Gilroy-Medium", "Helvetica", "sans-serif";
 $headers-font: "Gilroy-Medium", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
+@font-face {
+   font-family: "Gilroy-Bold";
+   src: font-url('Gilroy-Bold.ttf');
+   src: font-url('Gilroy-Bold.ttf?#iefix') format('embedded-opentype'),
+        font-url('Gilroy-Bold.ttf') format('Gilroy-Bold.ttf'),
+       font-url('Gilroy-Bold.ttf') format('truetype')
+ }
+
+ @font-face {
+   font-family: "Gilroy-Heavy";
+   src: font-url('Gilroy-Heavy.ttf');
+   src: font-url('Gilroy-Heavy.ttf?#iefix') format('embedded-opentype'),
+        font-url('Gilroy-Heavy.ttf') format('Gilroy-Heavy.ttf'),
+       font-url('Gilroy-Heavy.ttf') format('truetype')
+ }
+
+ @font-face {
+   font-family: "Gilroy-Medium";
+   src: font-url('Gilroy-Medium.ttf');
+   src: font-url('Gilroy-Medium.ttf?#iefix') format('embedded-opentype'),
+        font-url('Gilroy-Medium.ttf') format('Gilroy-Medium.ttf'),
+       font-url('Gilroy-Medium.ttf') format('truetype')
+ }
+
+ @font-face {
+   font-family: "Gilroy-Regular";
+   src: font-url('Gilroy-Regular.ttf');
+   src: font-url('Gilroy-Regular.ttf?#iefix') format('embedded-opentype'),
+        font-url('Gilroy-Regular.ttf') format('Gilroy-Regular.ttf'),
+       font-url('Gilroy-Regular.ttf') format('truetype')
+ }
+
+ @font-face {
+   font-family: "Gilroy-Light";
+   src: font-url('Gilroy-Light.ttf');
+   src: font-url('Gilroy-Light.ttf?#iefix') format('embedded-opentype'),
+        font-url('Gilroy-Light.ttf') format('Gilroy-Light.ttf'),
+       font-url('Gilroy-Light.ttf') format('truetype')
+ }
+
+
 // $my-font: "Font Name";
 
-@font-face {
-font-family: 'Gilroy';
-src: url('Gilroy/Gilroy-Regular.ttf') format('truetype');
-src: url('Gilroy/Gilroy-Bold.ttf') format('truetype');
-src: url('Gilroy/Gilroy-Light.ttf') format('truetype');
-src: url('Gilroy/Gilroy-Medium.ttf') format('truetype');
-src: url('Gilroy/Gilroy-Heavy.ttf') format('truetype');
-}
+// @font-face {
+// font-family: 'Gilroy';
+// src: url('Gilroy/Gilroy-Regular.ttf') format('truetype');
+// src: url('Gilroy/Gilroy-Bold.ttf') format('truetype');
+// src: url('Gilroy/Gilroy-Light.ttf') format('truetype');
+// src: url('Gilroy/Gilroy-Medium.ttf') format('truetype');
+// src: url('Gilroy/Gilroy-Heavy.ttf') format('truetype');
+// }
