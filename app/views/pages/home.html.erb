@@ -22,11 +22,24 @@
               <% habits_total = category.habits.count %>
               <% progress = habits_done.count.to_f.round(2) / habits_total.to_f.round(2) %>
               <% result = progress.round(2) * 100 %>
-              <div class="progressdiv"  data-percent=" <%= result %> ">
-                <svg class="progress" width="88" height="88" viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <circle r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" style=" stroke: <%= category.color %> "></circle>
-                <circle class="bar" r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" ></circle>
-              </svg></div>
+
+              <% if result.nan? == false %>
+                <div class="progressdiv"  data-percent=" <%= result.ceil %>">
+                  <svg class="progress" width="88" height="88" viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <circle r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" style=" stroke: <%= category.color %> "></circle>
+                  <circle class="bar" r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" ></circle>
+                  </svg>
+                </div>
+              <% else %>
+                <div class="progressdiv"  data-percent="0">
+                  <svg class="progress" width="88" height="88" viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <circle r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" style=" stroke: <%= category.color %> "></circle>
+                  <circle class="bar" r="35" cx="44" cy="44" fill="transparent" stroke-dasharray="219.5" stroke-dashoffset="0" ></circle>
+                  </svg>
+                </div>
+              <% end %>
+
+
             </div>
             <div class="category-info">
               <h4 style="color: <%= category.color %> "><%= category.title %></h4>
