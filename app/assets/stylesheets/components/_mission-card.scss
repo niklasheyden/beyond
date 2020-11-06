@@ -17,6 +17,9 @@
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.2s;
   h5 {
     font-family: 'Gilroy-Medium';
     font-size: 12px;
@@ -36,6 +39,10 @@
     margin-top: 1rem;
     font-size: 12px;
   }
+}
+
+.mission-card:hover {
+  top: -3px;
 }
 
 .mission-card-content {
