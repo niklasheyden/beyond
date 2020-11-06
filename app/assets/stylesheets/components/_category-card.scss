@@ -17,6 +17,9 @@
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.2s;
   h4 {
     font-family: 'Gilroy-Bold';
     font-size: 16px;
@@ -33,6 +36,10 @@
   a:hover {
     text-decoration: none;
   }
+}
+
+.category-card:hover {
+  top: -3px;
 }
 
 .category-card-content {
